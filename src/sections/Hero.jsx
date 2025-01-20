@@ -26,7 +26,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="w-full h-full absolute inset-0">
+      <div className="w-full h-full absolute inset-0 lg:mt-6">
         {/* <Leva/> */}
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
