@@ -1,15 +1,12 @@
-// import { PerspectiveCamera } from "@react-three/drei";
-// import { Canvas } from "@react-three/fiber";
-import React from "react";
+import { PerspectiveCamera } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { HackerRoom } from "../components/HackerRoom.jsx";
 import CanvasLoader from "../components/CanvasLoader.jsx";
-import { PerspectiveCamera } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
 
-// import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from '../constants/index.js';
+import Target from "../components/Target.jsx";
 const Hero = () => {
     const isSmall = useMediaQuery({ maxWidth: 440 });
     const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -27,7 +24,6 @@ const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0 lg:mt-6">
-        {/* <Leva/> */}
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
@@ -37,7 +33,9 @@ const Hero = () => {
               rotation={[0.1, -Math.PI, 0]}
 
             />
-            
+          <group>
+          <Target position={sizes.targetPosition} />
+          </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
